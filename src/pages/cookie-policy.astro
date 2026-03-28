@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Cookie Policy — Fatima Saleh" description="How this site uses cookies and browser storage.">
+  <section class="max-w-3xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
+    <h1 class="text-3xl sm:text-4xl font-semibold mb-2">Cookie Policy</h1>
+    <p class="text-muted text-sm mb-10">Last updated: March 2025</p>
+
+    <div class="prose prose-neutral max-w-none space-y-8 text-ink/90 leading-relaxed">
+
+      <section>
+        <h2 class="text-xl font-semibold mb-3">1. What are cookies?</h2>
+        <p>
+          Cookies are small text files that websites store on your device. They are widely used to make sites
+          work efficiently, remember your preferences, and provide information to website owners.
+          <code class="bg-cream/60 px-1 rounded text-sm">localStorage</code> is a similar browser-based
+          storage mechanism that persists data locally without sending it to a server on each request.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold mb-3">2. How this site uses cookies and local storage</h2>
+        <p>
+          This site uses <strong>no tracking cookies</strong> and <strong>no third-party analytics cookies</strong>.
+          We do not use Google Analytics, Facebook Pixel, or any other advertising or tracking technology.
+        </p>
+        <p class="mt-3">
+          The only browser storage this site sets is a single <code class="bg-cream/60 px-1 rounded text-sm">localStorage</code>
+          key used to remember your cookie consent preference:
+        </p>
+        <table class="w-full mt-4 text-sm border-collapse">
+          <thead>
+            <tr class="border-b border-ink/20">
+              <th class="text-left py-2 pr-4 font-semibold">Key</th>
+              <th class="text-left py-2 pr-4 font-semibold">Type</th>
+              <th class="text-left py-2 font-semibold">Purpose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-ink/10">
+              <td class="py-2 pr-4"><code class="bg-cream/60 px-1 rounded">cookie_consent</code></td>
+              <td class="py-2 pr-4">localStorage (functional)</td>
+              <td class="py-2">Remembers whether you have accepted or dismissed the cookie notice, so it is not shown again on return visits.</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="mt-4">
+          This key is stored locally in your browser only. It is never sent to our servers or shared with any third party.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold mb-3">3. No third-party cookies</h2>
+        <p>
+          We do not embed any third-party widgets, social sharing buttons, or advertising scripts that would
+          set cookies on your device. If this changes in the future, this policy will be updated accordingly.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold mb-3">4. How to manage or delete cookies</h2>
+        <p>
+          You can clear localStorage at any time through your browser's developer tools or privacy settings.
+          The steps vary by browser:
+        </p>
+        <ul class="list-disc pl-6 mt-2 space-y-1">
+          <li><strong>Chrome:</strong> Settings → Privacy and security → Clear browsing data</li>
+          <li><strong>Firefox:</strong> Settings → Privacy &amp; Security → Cookies and Site Data → Clear Data</li>
+          <li><strong>Safari:</strong> Preferences → Privacy → Manage Website Data</li>
+          <li><strong>Edge:</strong> Settings → Privacy, search, and services → Clear browsing data</li>
+        </ul>
+        <p class="mt-3">
+          Clearing this data will reset your cookie consent preference and the notice will appear again on your
+          next visit.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold mb-3">5. Changes to this policy</h2>
+        <p>
+          If we begin using additional cookies or storage mechanisms in the future, this policy will be updated
+          before those changes go live. The date at the top of this page indicates the last revision.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold mb-3">6. Contact</h2>
+        <p>
+          Questions about cookies or data storage? Contact:<br />
+          <strong>Fatima Saleh</strong><br />
+          <a href="mailto:hello@fatimasaleh.com" class="underline hover:text-burgundy transition-colors">hello@fatimasaleh.com</a>
+        </p>
+        <p class="mt-3">
+          For broader data privacy information, see the <a href="/privacy-policy" class="underline hover:text-burgundy transition-colors">Privacy Policy</a>.
+        </p>
+      </section>
+
+    </div>
+  </section>
+</BaseLayout>
