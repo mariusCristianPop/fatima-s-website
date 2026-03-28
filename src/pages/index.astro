@@ -1,54 +1,172 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+
+import heroImg from '../assets/8cfb7fa568d489ac3ca8fe9c01e11ec4.jpg';
+import logoAyaan from '../assets/d1b19127b171d019b375774ae86a8622.png';
+import logoSJ from '../assets/06d27964c6411abf85527429b09e6b23.png';
+import logoBotH from '../assets/65164f3f3d2a172439875e41d1dbf90b.png';
+import logoPrestige from '../assets/7be2c09af17ee5461fbbe4e0bd260bca.png';
+import testimonial1 from '../assets/61ad87ae69cce49d9cb69f48d38da03f.jpg';
+import testimonial2 from '../assets/2c30fe92b039b70ad1ffd3f57ef7805b.jpg';
+import testimonial3 from '../assets/da3605b83cd5dbb9bd443ac1f63efea5.jpg';
+import testimonial4 from '../assets/d7316b07ecdf166f1bf371c9da325644.jpg';
+import testimonial5 from '../assets/1475ce223090ca3cb726dd0bdcbd262c.jpg';
+import testimonial6 from '../assets/545594ea5aab9a876c88e8ffcc171135.jpg';
+
+const ventures = [
+  {
+    logo: logoAyaan,
+    name: 'Ayaan & Co Services',
+    description: 'A consultancy company supporting businesses with clarity, financial strategy, and direction.',
+    href: '/ventures',
+  },
+  {
+    logo: logoSJ,
+    name: 'SJ Prestige Events',
+    description: 'An exclusive event venue designed to host impactful and elegant experiences.',
+    href: '/ventures',
+  },
+  {
+    logo: logoBotH,
+    name: 'Business on the Heels',
+    description: 'A business network created to elevate Romanian women in entrepreneurship.',
+    href: '/business-on-the-heels',
+  },
+  {
+    logo: logoPrestige,
+    name: 'The Prestige Centre CIC',
+    description: 'Supporting and empowering the Romanian community through connection and development.',
+    href: '/ventures',
+  },
+];
+
+const testimonials = [
+  { img: testimonial1, name: 'Sarah M.', quote: 'Fatima helped me transform my business vision into a clear, actionable plan. Her guidance was invaluable.' },
+  { img: testimonial2, name: 'Ana P.', quote: 'Working with Fatima gave me the confidence and structure I needed to take my business to the next level.' },
+  { img: testimonial3, name: 'Maria C.', quote: 'The community Fatima has built through Business on the Heels is genuinely life-changing.' },
+  { img: testimonial4, name: 'Elena D.', quote: "Fatima's coaching approach is strategic, personal, and truly empowering. Highly recommend." },
+  { img: testimonial5, name: 'Ioana R.', quote: 'She has a rare ability to see both the big picture and the fine details that make a business succeed.' },
+  { img: testimonial6, name: 'Cristina B.', quote: 'My revenue grew by over 40% within six months of working with Fatima. The results speak for themselves.' },
+];
 ---
 
-<BaseLayout title="Fatima Saleh — Home" description="Coach, facilitator, and organizational development consultant.">
+<BaseLayout title="Fatima Saleh — Home" description="Founder, business coach, and community leader dedicated to building businesses with purpose, structure, and long-term success.">
+
   <!-- Hero -->
-  <section class="bg-cream py-24 px-4 sm:px-6">
-    <div class="max-w-6xl mx-auto">
-      <p class="text-magenta text-sm font-semibold tracking-widest uppercase mb-4">Welcome</p>
-      <h1 class="text-5xl sm:text-6xl font-bold text-ink leading-tight mb-6">
+  <section class="relative h-[90vh] min-h-[560px] flex items-end overflow-hidden">
+    <Image
+      src={heroImg}
+      alt="Fatima Saleh"
+      class="absolute inset-0 w-full h-full object-cover object-top"
+      widths={[640, 1024, 1600]}
+      sizes="100vw"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/30 to-transparent"></div>
+    <div class="relative z-10 max-w-6xl mx-auto w-full px-4 sm:px-6 pb-16 sm:pb-24">
+      <p class="text-gold text-xs font-semibold tracking-widest uppercase mb-3">Founder · Coach · Community Leader</p>
+      <h1 class="text-5xl sm:text-7xl font-bold text-cream leading-tight mb-4">
         Fatima Saleh
       </h1>
-      <p class="text-xl text-muted max-w-xl leading-relaxed mb-10">
-        Coach, facilitator, and organizational development consultant helping teams and leaders grow with intention.
+      <p class="text-lg sm:text-xl text-cream/85 max-w-xl leading-relaxed mb-8">
+        Building businesses with purpose, structure, and long-term success.
       </p>
       <div class="flex flex-wrap gap-4">
-        <a
-          href="/portfolio"
-          class="inline-block bg-burgundy text-cream px-6 py-3 text-sm font-semibold tracking-wide hover:bg-burgundy/90 transition-colors"
-        >
-          View Portfolio
+        <a href="/coaching" class="inline-block bg-magenta text-cream px-7 py-3 text-sm font-semibold tracking-wide hover:bg-magenta/90 transition-colors">
+          Work With Me
         </a>
-        <a
-          href="/contact"
-          class="inline-block border border-ink text-ink px-6 py-3 text-sm font-semibold tracking-wide hover:bg-ink hover:text-cream transition-colors"
-        >
+        <a href="/contact" class="inline-block border border-cream text-cream px-7 py-3 text-sm font-semibold tracking-wide hover:bg-cream hover:text-ink transition-colors">
           Get in Touch
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Brand color palette demo (design system reference) -->
-  <section class="py-16 px-4 sm:px-6 bg-cream border-t border-muted/20">
+  <!-- Bio -->
+  <section class="py-20 px-4 sm:px-6 bg-cream">
+    <div class="max-w-3xl mx-auto">
+      <p class="text-magenta text-xs font-semibold tracking-widest uppercase mb-4">About</p>
+      <h2 class="text-3xl sm:text-4xl font-bold text-ink mb-8">Fatima Saleh, MSc</h2>
+      <p class="text-muted text-sm font-semibold tracking-widest uppercase mb-6">Founder | Business Coach</p>
+      <div class="space-y-6 text-ink/80 text-lg leading-relaxed">
+        <p>
+          I'm Fatima — a finance professional, entrepreneur, and community leader dedicated to building businesses with purpose, structure, and long-term success.
+        </p>
+        <p>
+          I am the founder of Ayaan & Co Services, a consultancy company supporting businesses with clarity and direction. I also own SJ Prestige Events Ltd, an exclusive event venue designed to host impactful and elegant experiences.
+        </p>
+        <p>
+          Beyond business ownership, I serve as Director of The Prestige Centre CIC, supporting and empowering the Romanian community, and I am the Founder & CEO of Business on the Heels Club — a business network created to elevate Romanian women in entrepreneurship.
+        </p>
+      </div>
+      <a href="/about" class="inline-block mt-10 border border-ink text-ink px-6 py-3 text-sm font-semibold tracking-wide hover:bg-ink hover:text-cream transition-colors">
+        Read My Story
+      </a>
+    </div>
+  </section>
+
+  <!-- Ventures Preview -->
+  <section class="py-20 px-4 sm:px-6 bg-ink">
     <div class="max-w-6xl mx-auto">
-      <h2 class="text-xs font-semibold tracking-widest uppercase text-muted mb-6">Design System — Brand Colors</h2>
-      <div class="flex flex-wrap gap-4">
-        {[
-          { name: 'ink', bg: 'bg-ink', label: 'Ink #0F0E0D' },
-          { name: 'burgundy', bg: 'bg-burgundy', label: 'Burgundy #6B2D3E' },
-          { name: 'gold', bg: 'bg-gold', label: 'Gold #C9A84C' },
-          { name: 'magenta', bg: 'bg-magenta', label: 'Magenta #C4386B' },
-          { name: 'cream', bg: 'bg-cream border border-muted/30', label: 'Cream #F7F4F0' },
-          { name: 'muted', bg: 'bg-muted', label: 'Muted #8A7F7A' },
-        ].map(({ bg, label }) => (
-          <div class="flex flex-col items-center gap-2">
-            <div class={`w-16 h-16 rounded ${bg}`}></div>
-            <span class="text-xs text-muted whitespace-nowrap">{label}</span>
+      <p class="text-gold text-xs font-semibold tracking-widest uppercase mb-4">Ventures</p>
+      <h2 class="text-3xl sm:text-4xl font-bold text-cream mb-12">What I'm Building</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {ventures.map((v) => (
+          <a href={v.href} class="group flex flex-col bg-cream/5 border border-cream/10 p-8 hover:bg-cream/10 transition-colors">
+            <div class="h-14 flex items-center mb-6">
+              <Image src={v.logo} alt={v.name} class="max-h-12 w-auto object-contain" />
+            </div>
+            <h3 class="text-cream font-semibold text-lg mb-2 group-hover:text-gold transition-colors">{v.name}</h3>
+            <p class="text-cream/60 text-sm leading-relaxed flex-1">{v.description}</p>
+            <span class="mt-6 text-gold text-sm font-semibold tracking-wide">Learn more →</span>
+          </a>
+        ))}
+      </div>
+      <div class="mt-10 text-center">
+        <a href="/ventures" class="inline-block border border-cream/30 text-cream px-7 py-3 text-sm font-semibold tracking-wide hover:border-cream hover:bg-cream/5 transition-colors">
+          View All Ventures
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-20 px-4 sm:px-6 bg-cream">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-magenta text-xs font-semibold tracking-widest uppercase mb-4">Testimonials</p>
+      <h2 class="text-3xl sm:text-4xl font-bold text-ink mb-12">What They Say</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {testimonials.map((t) => (
+          <div class="flex flex-col bg-white border border-muted/20 overflow-hidden">
+            <div class="aspect-square overflow-hidden">
+              <Image src={t.img} alt={t.name} class="w-full h-full object-cover object-top" widths={[400, 600]} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+            </div>
+            <div class="p-6 flex flex-col flex-1">
+              <p class="text-ink/75 text-sm leading-relaxed flex-1 italic mb-4">"{t.quote}"</p>
+              <p class="text-ink font-semibold text-sm">{t.name}</p>
+            </div>
           </div>
         ))}
       </div>
     </div>
   </section>
+
+  <!-- CTA Strip -->
+  <section class="py-20 px-4 sm:px-6 bg-burgundy">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold text-cream mb-4">Ready to Grow?</h2>
+      <p class="text-cream/80 text-lg leading-relaxed mb-10">
+        Whether you're starting out or scaling up, I'm here to help you build with clarity and confidence.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/coaching" class="inline-block bg-cream text-burgundy px-8 py-3 text-sm font-semibold tracking-wide hover:bg-cream/90 transition-colors">
+          Explore Coaching
+        </a>
+        <a href="/business-on-the-heels" class="inline-block border border-cream text-cream px-8 py-3 text-sm font-semibold tracking-wide hover:bg-cream/10 transition-colors">
+          Business on the Heels
+        </a>
+      </div>
+    </div>
+  </section>
+
 </BaseLayout>
