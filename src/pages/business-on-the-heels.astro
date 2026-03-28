@@ -1,0 +1,158 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+
+import heroImg from '../assets/f85039025ce500c0be459ff64df5ca32.jpg';
+import gallery1 from '../assets/29c2d64c17abac5b8c4034c2f3d81063.jpg';
+import gallery2 from '../assets/f2492012b7fbdd60e97c9f9f8298a139.jpg';
+import gallery3 from '../assets/7697ab2c2872e623b1880312081e2c56.jpg';
+import gallery4 from '../assets/e1c2b99ece118e8de5b1e66205ff6f8a.jpg';
+import logoBotH from '../assets/65164f3f3d2a172439875e41d1dbf90b.png';
+
+const benefits = [
+  { title: 'Leadership Development', description: 'Build the mindset, skills, and confidence to lead with purpose and clarity in any room.' },
+  { title: 'Entrepreneurship', description: 'Turn your ideas into structured, scalable businesses with real strategies and accountability.' },
+  { title: 'Financial Confidence', description: 'Understand your numbers, manage cash flow, and make sound financial decisions with ease.' },
+  { title: 'Professional Networks', description: 'Connect with like-minded ambitious women who support, challenge, and grow together.' },
+];
+---
+
+<BaseLayout title="Business on the Heels — Fatima Saleh" description="Business on the Heels is a business club empowering ambitious women to grow, lead, and succeed through leadership development, entrepreneurship, and financial confidence.">
+
+  <!-- Hero -->
+  <section class="relative h-[85vh] min-h-[520px] flex items-end overflow-hidden">
+    <Image
+      src={heroImg}
+      alt="Business on the Heels — women in business"
+      class="absolute inset-0 w-full h-full object-cover object-top"
+      widths={[640, 1024, 1600]}
+      sizes="100vw"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/40 to-transparent"></div>
+    <div class="relative z-10 max-w-6xl mx-auto w-full px-4 sm:px-6 pb-16 sm:pb-24">
+      <div class="mb-6">
+        <Image src={logoBotH} alt="Business on the Heels logo" class="max-h-16 w-auto object-contain" />
+      </div>
+      <p class="text-gold text-xs font-semibold tracking-widest uppercase mb-3">Women in Business</p>
+      <h1 class="text-5xl sm:text-7xl font-bold text-cream leading-tight mb-6">
+        Business on the Heels
+      </h1>
+      <p class="text-lg sm:text-xl text-cream/85 max-w-2xl leading-relaxed mb-8">
+        A business club founded to empower ambitious women to grow, lead, and succeed — because where you are going matters more than where you started.
+      </p>
+      <a href="/contact" class="inline-block bg-magenta text-cream px-8 py-3 text-sm font-semibold tracking-wide hover:bg-magenta/90 transition-colors">
+        Join the Club
+      </a>
+    </div>
+  </section>
+
+  <!-- What is Business on the Heels -->
+  <section class="py-20 px-4 sm:px-6 bg-cream">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-magenta text-xs font-semibold tracking-widest uppercase mb-4">Our Mission</p>
+      <h2 class="text-3xl sm:text-4xl font-bold text-ink mb-12">What is Business on the Heels?</h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="space-y-6 text-ink/80 text-lg leading-relaxed">
+          <p>
+            Business on the Heels is a business club and community built for ambitious women who are ready to step into their full potential. Founded by Fatima Saleh, the club was born from a belief that women deserve a space where ambition is celebrated, strategy is shared, and success is collective.
+          </p>
+          <p>
+            We bring together entrepreneurs, professionals, and future business leaders — women who are building something meaningful and who understand that the right network, knowledge, and mindset can change everything.
+          </p>
+          <p>
+            Whether you are just starting out or scaling an established business, Business on the Heels provides the structure, community, and guidance to help you go further, faster — on your own terms.
+          </p>
+        </div>
+        <div class="overflow-hidden aspect-[4/3]">
+          <Image
+            src={gallery1}
+            alt="Business on the Heels — community"
+            class="w-full h-full object-cover"
+            widths={[480, 800]}
+            sizes="(max-width: 1024px) 100vw, 50vw"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What it Provides -->
+  <section class="py-20 px-4 sm:px-6 bg-ink">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-gold text-xs font-semibold tracking-widest uppercase mb-4">What You Get</p>
+      <h2 class="text-3xl sm:text-4xl font-bold text-cream mb-12">What it Provides</h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {benefits.map((b) => (
+            <div class="bg-cream/5 border border-cream/10 p-6">
+              <h3 class="text-gold font-semibold text-base mb-3">{b.title}</h3>
+              <p class="text-cream/70 text-sm leading-relaxed">{b.description}</p>
+            </div>
+          ))}
+        </div>
+        <div class="space-y-8">
+          <div class="space-y-4 text-cream/80 text-base leading-relaxed">
+            <h3 class="text-cream font-bold text-xl">Membership</h3>
+            <p>
+              Business on the Heels membership is open to women who are serious about their growth. Members gain access to exclusive events, workshops, masterminds, and one-to-one support designed to move their businesses forward.
+            </p>
+            <ul class="space-y-2 text-cream/70 text-sm">
+              <li class="flex items-start gap-3"><span class="text-gold mt-1">→</span> Regular business networking events</li>
+              <li class="flex items-start gap-3"><span class="text-gold mt-1">→</span> Expert-led workshops and training sessions</li>
+              <li class="flex items-start gap-3"><span class="text-gold mt-1">→</span> Access to a curated community of women entrepreneurs</li>
+              <li class="flex items-start gap-3"><span class="text-gold mt-1">→</span> Accountability structures to keep you on track</li>
+              <li class="flex items-start gap-3"><span class="text-gold mt-1">→</span> Mentorship from experienced business leaders</li>
+            </ul>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="overflow-hidden aspect-square">
+              <Image
+                src={gallery2}
+                alt="Business on the Heels event"
+                class="w-full h-full object-cover"
+                widths={[300, 500]}
+                sizes="25vw"
+              />
+            </div>
+            <div class="overflow-hidden aspect-square">
+              <Image
+                src={gallery3}
+                alt="Business on the Heels workshop"
+                class="w-full h-full object-cover"
+                widths={[300, 500]}
+                sizes="25vw"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Strip -->
+  <section class="py-0">
+    <div class="w-full overflow-hidden aspect-[3/1]">
+      <Image
+        src={gallery4}
+        alt="Business on the Heels — event gallery"
+        class="w-full h-full object-cover"
+        widths={[800, 1400, 1920]}
+        sizes="100vw"
+      />
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 px-4 sm:px-6 bg-burgundy">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold text-cream mb-4">Ready to Step Up?</h2>
+      <p class="text-cream/80 text-lg leading-relaxed mb-10">
+        Join a community of ambitious women who are building real businesses, making bold moves, and lifting each other higher.
+      </p>
+      <a href="/contact" class="inline-block bg-cream text-burgundy px-8 py-3 text-sm font-semibold tracking-wide hover:bg-cream/90 transition-colors">
+        Get in Touch
+      </a>
+    </div>
+  </section>
+
+</BaseLayout>

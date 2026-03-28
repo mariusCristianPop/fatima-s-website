@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+
+import logoAyaan from '../assets/d1b19127b171d019b375774ae86a8622.png';
+import logoSJ from '../assets/06d27964c6411abf85527429b09e6b23.png';
+import logoBotH from '../assets/65164f3f3d2a172439875e41d1dbf90b.png';
+import logoPrestige from '../assets/7be2c09af17ee5461fbbe4e0bd260bca.png';
+import logoKalon from '../assets/3d43b0d62af39df458a4bad4618fa859.png';
+import logoTuFemeie from '../assets/918f9739357c73c8c675b1313ab6a6d9.png';
+import logoAR from '../assets/e5585549dd4a0ec638c61c2e75e4dd05.png';
+import logoWonders from '../assets/cdadc2834440deb7dcc528a9d8e57419.png';
+
+const ventures = [
+  {
+    logo: logoAyaan,
+    name: 'Ayaan & Co Services',
+    description: "Leading the company's overall financial strategy, business operations, and corporate growth — overseeing financial planning, investment decisions, risk management, and regulatory compliance.",
+  },
+  {
+    logo: logoSJ,
+    name: 'SJ Prestige Events',
+    description: 'Overseeing the overall management and operations of the event hall, ensuring every event is executed professionally and seamlessly — coordinating event planning, staff, and client relationships.',
+  },
+  {
+    logo: logoBotH,
+    name: 'Business on the Heels',
+    description: 'Founded to empower ambitious women to grow, lead, and succeed in business — focusing on leadership development, entrepreneurship, financial confidence, and strong professional networks.',
+  },
+  {
+    logo: logoPrestige,
+    name: 'The Prestige Centre CIC',
+    description: 'Leading community-focused initiatives to bring people together, create opportunities, and support local growth — serving as a welcoming hub for connection, collaboration, and development.',
+  },
+  {
+    logo: logoKalon,
+    name: 'Kalon Financial',
+    description: 'As Protection Advisor & Area Sales Manager, helping individuals, families, and businesses secure their financial future through tailored protection solutions.',
+  },
+  {
+    logo: logoTuFemeie,
+    name: 'Tu Femeie Poți',
+    description: "Founded to support and inspire women within the Romanian community — focusing on personal development, financial education, confidence-building, and creating a strong women's support network.",
+  },
+  {
+    logo: logoAR,
+    name: 'A&R Consultancy',
+    description: "Supporting the daily operations of this family-owned accountancy firm — assisting with accounting and client management while maintaining high standards of accuracy and confidentiality.",
+  },
+  {
+    logo: logoWonders,
+    name: 'Wonders of Pakistan',
+    description: "Working alongside my husband to import high-quality bedsheets and home textiles from Pakistan — managing supplier relationships, product selection, import logistics, and customer service.",
+  },
+];
+---
+
+<BaseLayout title="Ventures — Fatima Saleh" description="Explore the full portfolio of ventures led by Fatima Saleh — from consultancy and events to community organisations and financial services.">
+
+  <!-- Header -->
+  <section class="py-24 px-4 sm:px-6 bg-ink">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-gold text-xs font-semibold tracking-widest uppercase mb-4">Portfolio</p>
+      <h1 class="text-5xl sm:text-7xl font-bold text-cream leading-tight mb-6">Our Ventures</h1>
+      <p class="text-cream/75 text-lg sm:text-xl max-w-2xl leading-relaxed">
+        A portfolio of businesses, organisations, and initiatives — each built with purpose, each making a real difference in its field and community.
+      </p>
+    </div>
+  </section>
+
+  <!-- Ventures Grid -->
+  <section class="py-20 px-4 sm:px-6 bg-cream">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+        {ventures.map((v) => (
+          <div class="flex flex-col border border-muted/20 p-8 bg-white hover:shadow-md transition-shadow">
+            <div class="h-16 flex items-center mb-6">
+              <Image src={v.logo} alt={v.name} class="max-h-14 w-auto object-contain" style="width: 120px;" />
+            </div>
+            <h2 class="text-ink font-bold text-xl mb-4">{v.name}</h2>
+            <p class="text-ink/65 text-base leading-relaxed">{v.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 px-4 sm:px-6 bg-burgundy">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold text-cream mb-4">Interested in Collaborating?</h2>
+      <p class="text-cream/80 text-lg leading-relaxed mb-10">
+        Whether you are looking to partner, invest, or explore an opportunity, I would love to hear from you.
+      </p>
+      <a href="/contact" class="inline-block bg-cream text-burgundy px-8 py-3 text-sm font-semibold tracking-wide hover:bg-cream/90 transition-colors">
+        Get in Touch
+      </a>
+    </div>
+  </section>
+
+</BaseLayout>

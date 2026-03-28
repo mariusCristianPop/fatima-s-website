@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+
+import testimonial1 from '../assets/61ad87ae69cce49d9cb69f48d38da03f.jpg';
+import testimonial2 from '../assets/2c30fe92b039b70ad1ffd3f57ef7805b.jpg';
+import testimonial3 from '../assets/da3605b83cd5dbb9bd443ac1f63efea5.jpg';
+import testimonial4 from '../assets/d7316b07ecdf166f1bf371c9da325644.jpg';
+import testimonial5 from '../assets/1475ce223090ca3cb726dd0bdcbd262c.jpg';
+import testimonial6 from '../assets/545594ea5aab9a876c88e8ffcc171135.jpg';
+
+const testimonials = [
+  { img: testimonial1, name: 'Sarah M.', quote: 'Fatima helped me transform my business vision into a clear, actionable plan. Her guidance was invaluable.' },
+  { img: testimonial2, name: 'Ana P.', quote: 'Working with Fatima gave me the confidence and structure I needed to take my business to the next level.' },
+  { img: testimonial3, name: 'Maria C.', quote: 'The community Fatima has built through Business on the Heels is genuinely life-changing.' },
+  { img: testimonial4, name: 'Elena D.', quote: "Fatima's coaching approach is strategic, personal, and truly empowering. Highly recommend." },
+  { img: testimonial5, name: 'Ioana R.', quote: 'She has a rare ability to see both the big picture and the fine details that make a business succeed.' },
+  { img: testimonial6, name: 'Cristina B.', quote: 'My revenue grew by over 40% within six months of working with Fatima. The results speak for themselves.' },
+];
+---
+
+<BaseLayout title="Testimonials — Fatima Saleh" description="Read what clients and community members say about working with Fatima Saleh — business coach, entrepreneur, and community leader.">
+
+  <!-- Header -->
+  <section class="py-24 px-4 sm:px-6 bg-ink">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-gold text-xs font-semibold tracking-widest uppercase mb-4">Social Proof</p>
+      <h1 class="text-5xl sm:text-7xl font-bold text-cream leading-tight mb-6">Testimonials</h1>
+      <p class="text-cream/75 text-lg sm:text-xl max-w-2xl leading-relaxed">
+        Real words from real people — clients, community members, and entrepreneurs who have worked with Fatima.
+      </p>
+    </div>
+  </section>
+
+  <!-- Testimonials Grid -->
+  <section class="py-20 px-4 sm:px-6 bg-cream">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {testimonials.map((t) => (
+          <div class="flex flex-col bg-white border border-muted/20 overflow-hidden">
+            <div class="p-6 flex justify-center">
+              <div class="w-24 h-24 rounded-full overflow-hidden flex-shrink-0">
+                <Image
+                  src={t.img}
+                  alt={t.name}
+                  class="w-full h-full object-cover object-top"
+                  widths={[96, 192]}
+                  sizes="96px"
+                />
+              </div>
+            </div>
+            <div class="px-6 pb-8 flex flex-col flex-1 text-center">
+              <p class="text-ink/75 text-base leading-relaxed flex-1 italic mb-6">"{t.quote}"</p>
+              <p class="text-ink font-semibold text-sm">{t.name}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 px-4 sm:px-6 bg-burgundy">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold text-cream mb-4">Ready to Write Your Own Story?</h2>
+      <p class="text-cream/80 text-lg leading-relaxed mb-10">
+        Join the growing number of entrepreneurs and professionals who have built clarity, confidence, and momentum with Fatima.
+      </p>
+      <a href="/contact" class="inline-block bg-cream text-burgundy px-8 py-3 text-sm font-semibold tracking-wide hover:bg-cream/90 transition-colors">
+        Work With Me
+      </a>
+    </div>
+  </section>
+
+</BaseLayout>
