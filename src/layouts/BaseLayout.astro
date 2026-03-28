@@ -6,12 +6,23 @@ import CookieBanner from '../components/CookieBanner.astro';
 interface Props {
   title?: string;
   description?: string;
+  ogImage?: string;
+  ogType?: string;
+  canonicalUrl?: string;
+  gscVerification?: string;
 }
 
 const {
   title = 'Fatima Saleh',
   description = 'Coach, facilitator, and organizational development consultant.',
+  ogImage = '/og-default.jpg',
+  ogType = 'website',
+  canonicalUrl,
+  gscVerification = import.meta.env.PUBLIC_GSC_VERIFICATION_TAG ?? '',
 } = Astro.props;
+
+const canonical = canonicalUrl ?? Astro.url.href;
+const ogImageAbsolute = ogImage.startsWith('http') ? ogImage : `https://fatimasaleh.com${ogImage}`;
 ---
 
 <!doctype html>
@@ -22,6 +33,27 @@ const {
     <meta name="description" content={description} />
     <title>{title}</title>
     <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageAbsolute} />
+    <meta property="og:site_name" content="Fatima Saleh" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageAbsolute} />
+
+    <!-- Google Search Console verification -->
+    {gscVerification && <meta name="google-site-verification" content={gscVerification} />}
+
+    <!-- Extra head content injected by individual pages -->
+    <slot name="head" />
   </head>
   <body class="bg-cream text-ink min-h-screen flex flex-col font-sans antialiased">
     <Nav />

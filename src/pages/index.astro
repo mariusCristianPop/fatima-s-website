@@ -52,6 +52,34 @@ const testimonials = [
 ---
 
 <BaseLayout title="Fatima Saleh — Home" description="Founder, business coach, and community leader dedicated to building businesses with purpose, structure, and long-term success.">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "name": "Fatima Saleh",
+          "url": "https://fatimasaleh.com",
+          "jobTitle": "Business Coach & Entrepreneur",
+          "description": "Founder, business coach, and community leader dedicated to building businesses with purpose, structure, and long-term success.",
+          "sameAs": []
+        },
+        {
+          "@type": "WebSite",
+          "name": "Fatima Saleh",
+          "url": "https://fatimasaleh.com",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://fatimasaleh.com/?s={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        }
+      ]
+    })} />
+  </Fragment>
 
   <!-- Hero -->
   <section class="relative h-[90vh] min-h-[560px] flex items-end overflow-hidden">
