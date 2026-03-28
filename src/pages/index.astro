@@ -1,13 +1,54 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fatima Saleh</title>
-  </head>
-  <body>
-    <h1>Fatima</h1>
-  </body>
-</html>
+
+<BaseLayout title="Fatima Saleh — Home" description="Coach, facilitator, and organizational development consultant.">
+  <!-- Hero -->
+  <section class="bg-cream py-24 px-4 sm:px-6">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-magenta text-sm font-semibold tracking-widest uppercase mb-4">Welcome</p>
+      <h1 class="text-5xl sm:text-6xl font-bold text-ink leading-tight mb-6">
+        Fatima Saleh
+      </h1>
+      <p class="text-xl text-muted max-w-xl leading-relaxed mb-10">
+        Coach, facilitator, and organizational development consultant helping teams and leaders grow with intention.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a
+          href="/portfolio"
+          class="inline-block bg-burgundy text-cream px-6 py-3 text-sm font-semibold tracking-wide hover:bg-burgundy/90 transition-colors"
+        >
+          View Portfolio
+        </a>
+        <a
+          href="/contact"
+          class="inline-block border border-ink text-ink px-6 py-3 text-sm font-semibold tracking-wide hover:bg-ink hover:text-cream transition-colors"
+        >
+          Get in Touch
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brand color palette demo (design system reference) -->
+  <section class="py-16 px-4 sm:px-6 bg-cream border-t border-muted/20">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-xs font-semibold tracking-widest uppercase text-muted mb-6">Design System — Brand Colors</h2>
+      <div class="flex flex-wrap gap-4">
+        {[
+          { name: 'ink', bg: 'bg-ink', label: 'Ink #0F0E0D' },
+          { name: 'burgundy', bg: 'bg-burgundy', label: 'Burgundy #6B2D3E' },
+          { name: 'gold', bg: 'bg-gold', label: 'Gold #C9A84C' },
+          { name: 'magenta', bg: 'bg-magenta', label: 'Magenta #C4386B' },
+          { name: 'cream', bg: 'bg-cream border border-muted/30', label: 'Cream #F7F4F0' },
+          { name: 'muted', bg: 'bg-muted', label: 'Muted #8A7F7A' },
+        ].map(({ bg, label }) => (
+          <div class="flex flex-col items-center gap-2">
+            <div class={`w-16 h-16 rounded ${bg}`}></div>
+            <span class="text-xs text-muted whitespace-nowrap">{label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

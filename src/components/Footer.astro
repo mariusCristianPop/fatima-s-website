@@ -1,0 +1,82 @@
+---
+const navLinks = [
+  { href: '/about', label: 'About' },
+  { href: '/portfolio', label: 'Portfolio' },
+  { href: '/services', label: 'Services' },
+  { href: '/contact', label: 'Contact' },
+];
+
+const socialLinks = [
+  { href: 'https://linkedin.com/in/fatimasaleh', label: 'LinkedIn', icon: 'li' },
+  { href: 'https://instagram.com/fatimasaleh', label: 'Instagram', icon: 'ig' },
+  { href: 'https://facebook.com/fatimasaleh', label: 'Facebook', icon: 'fb' },
+];
+
+const legalLinks = [
+  { href: '/privacy', label: 'Privacy Policy' },
+  { href: '/terms', label: 'Terms' },
+];
+
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-ink text-cream">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-10">
+      <!-- Brand column -->
+      <div>
+        <a href="/" class="text-cream font-semibold text-lg tracking-wide hover:text-gold transition-colors">
+          Fatima Saleh
+        </a>
+        <p class="mt-3 text-muted text-sm leading-relaxed">
+          Coach, facilitator, and organizational development consultant.
+        </p>
+      </div>
+
+      <!-- Nav links -->
+      <nav aria-label="Footer navigation">
+        <h3 class="text-xs font-semibold tracking-widest uppercase text-muted mb-4">Navigation</h3>
+        <ul class="flex flex-col gap-2">
+          {navLinks.map(({ href, label }) => (
+            <li>
+              <a href={href} class="text-cream/70 hover:text-gold text-sm transition-colors">
+                {label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <!-- Social links -->
+      <div>
+        <h3 class="text-xs font-semibold tracking-widest uppercase text-muted mb-4">Connect</h3>
+        <ul class="flex flex-col gap-2">
+          {socialLinks.map(({ href, label }) => (
+            <li>
+              <a
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-cream/70 hover:text-gold text-sm transition-colors"
+              >
+                {label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="border-t border-muted/20 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted">
+      <span>&copy; {year} Fatima Saleh. All rights reserved.</span>
+      <ul class="flex gap-4">
+        {legalLinks.map(({ href, label }) => (
+          <li>
+            <a href={href} class="hover:text-cream transition-colors">{label}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</footer>
