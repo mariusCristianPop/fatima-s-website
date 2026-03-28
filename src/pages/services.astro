@@ -1,0 +1,264 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+
+import heroImg from '../assets/b8a2dcef80aa4636803e6feb58d3547c.jpg';
+import img1 from '../assets/483bb5deebbdb6fbbda1c06a8dcd6e9f.jpg';
+import img2 from '../assets/5339ec34655a1f761c08f5437973f374.jpg';
+import img3 from '../assets/57049b03848e31b26790cc00c54f4a11.jpg';
+import img4 from '../assets/328aa93836d250a3e538d2c10240677b.jpg';
+import img5 from '../assets/af733941fc9e0b94f99bcf33ad4d612b.jpg';
+import logoBotH from '../assets/65164f3f3d2a172439875e41d1dbf90b.png';
+import bothImg1 from '../assets/29c2d64c17abac5b8c4034c2f3d81063.jpg';
+import bothImg2 from '../assets/f2492012b7fbdd60e97c9f9f8298a139.jpg';
+
+const services = [
+  {
+    title: 'Business Strategy & Planning',
+    description: "We map out where you are, where you want to go, and exactly how to get there — with a clear, actionable roadmap built around your specific business, not a generic template.",
+  },
+  {
+    title: 'Financial Clarity & Confidence',
+    description: "Understand your numbers, identify profit leaks, set pricing that works, and build a financial foundation that supports sustainable growth.",
+  },
+  {
+    title: 'Leadership & Mindset Coaching',
+    description: "Step into your role as a business owner with confidence. We work on the mindset, decision-making, and leadership skills that separate businesses that survive from those that thrive.",
+  },
+  {
+    title: 'Entrepreneurship Launch',
+    description: "Taking your first steps into business? We help you structure, validate, and launch your idea the right way — reducing risk and accelerating your path to revenue.",
+  },
+  {
+    title: 'Accountability & Growth Support',
+    description: "Ongoing support that keeps you focused and moving. Regular check-ins, honest feedback, and the structure you need to stay consistent and achieve real results.",
+  },
+  {
+    title: 'Community & Network Access',
+    description: "Join a curated network of entrepreneurs and business leaders. The right connections can open doors, provide referrals, and offer perspectives that change how you think about your business.",
+  },
+];
+---
+
+<BaseLayout title="Services — Fatima Saleh" description="Business coaching and advisory services from Fatima Saleh — helping entrepreneurs, professionals, and business owners build clarity, confidence, and sustainable growth.">
+
+  <!-- Hero -->
+  <section class="relative h-[85vh] min-h-[520px] flex items-end overflow-hidden">
+    <Image
+      src={heroImg}
+      alt="Fatima Saleh — Services"
+      class="absolute inset-0 w-full h-full object-cover object-top"
+      widths={[640, 1024, 1600]}
+      sizes="100vw"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/40 to-transparent"></div>
+    <div class="relative z-10 max-w-6xl mx-auto w-full px-4 sm:px-6 pb-16 sm:pb-24">
+      <p class="text-gold text-xs font-semibold tracking-widest uppercase mb-3">Business Coaching</p>
+      <h1 class="text-5xl sm:text-7xl font-bold text-cream leading-tight mb-6">
+        Services
+      </h1>
+      <p class="text-lg sm:text-xl text-cream/85 max-w-2xl leading-relaxed mb-8">
+        Strategic support for entrepreneurs, professionals, and business owners ready to grow with clarity and purpose.
+      </p>
+      <a href="/contact" class="inline-block bg-magenta text-cream px-8 py-3 text-sm font-semibold tracking-wide hover:bg-magenta/90 transition-colors">
+        Work With Me
+      </a>
+    </div>
+  </section>
+
+  <!-- About the coaching -->
+  <section class="py-20 px-4 sm:px-6 bg-cream">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="space-y-6">
+          <p class="text-magenta text-xs font-semibold tracking-widest uppercase">As a Business Coach</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-ink">Coaching with Structure, Strategy, and Purpose</h2>
+          <p class="text-ink/75 text-lg leading-relaxed">
+            I support entrepreneurs, professionals, and business owners in building clarity, confidence, and sustainable growth strategies. I work closely with clients to identify their goals, overcome challenges, and implement structured action plans that drive measurable results.
+          </p>
+          <p class="text-ink/75 text-lg leading-relaxed">
+            My coaching approach combines strategic planning, mindset development, financial awareness, and leadership growth to help clients scale their businesses effectively while maintaining balance and purpose.
+          </p>
+        </div>
+        <div class="overflow-hidden aspect-[3/4]">
+          <Image
+            src={img1}
+            alt="Fatima Saleh coaching"
+            class="w-full h-full object-cover object-top"
+            widths={[480, 800]}
+            sizes="(max-width: 1024px) 100vw, 50vw"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission statement -->
+  <section class="py-20 px-4 sm:px-6 bg-ink">
+    <div class="max-w-4xl mx-auto text-center">
+      <p class="text-gold text-xs font-semibold tracking-widest uppercase mb-6">Mission</p>
+      <blockquote class="text-3xl sm:text-4xl lg:text-5xl font-bold text-cream leading-tight">
+        My mission is to <span class="text-magenta">empower</span> business owners to unlock their full potential, increase profitability, and build impactful, sustainable businesses.
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Services grid -->
+  <section class="py-20 px-4 sm:px-6 bg-cream">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-magenta text-xs font-semibold tracking-widest uppercase mb-4">What We Cover</p>
+      <h2 class="text-3xl sm:text-4xl font-bold text-ink mb-12">How I Can Help</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map((s) => (
+          <div class="border border-muted/20 p-8 bg-white hover:shadow-md transition-shadow">
+            <h3 class="text-magenta font-semibold text-base mb-4">{s.title}</h3>
+            <p class="text-ink/70 text-sm leading-relaxed">{s.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo gallery -->
+  <section class="py-20 px-4 sm:px-6 bg-ink">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <div class="overflow-hidden aspect-[3/4]">
+          <Image src={img2} alt="Coaching session" class="w-full h-full object-cover" widths={[400, 700]} sizes="25vw" />
+        </div>
+        <div class="overflow-hidden aspect-[3/4]">
+          <Image src={img3} alt="Business workshop" class="w-full h-full object-cover" widths={[400, 700]} sizes="25vw" />
+        </div>
+        <div class="overflow-hidden aspect-[3/4]">
+          <Image src={img4} alt="Entrepreneur event" class="w-full h-full object-cover" widths={[400, 700]} sizes="25vw" />
+        </div>
+        <div class="overflow-hidden aspect-[3/4]">
+          <Image src={img5} alt="Fatima Saleh" class="w-full h-full object-cover" widths={[400, 700]} sizes="25vw" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Business on the Heels -->
+  <section class="py-20 px-4 sm:px-6 bg-cream">
+    <div class="max-w-6xl mx-auto">
+
+      <!-- Logo + intro -->
+      <div class="flex flex-col items-center text-center mb-16">
+        <Image src={logoBotH} alt="Business on the Heels" class="max-h-24 w-auto object-contain mb-8" style="max-width: 260px;" />
+        <p class="text-magenta text-xs font-semibold tracking-widest uppercase mb-4">Community</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-ink mb-6">Business on the Heels</h2>
+        <p class="text-ink/75 text-lg leading-relaxed max-w-2xl">
+          A structured business community designed for ambitious Romanian women who are serious about growth.
+        </p>
+      </div>
+
+      <!-- Two-column: membership criteria + image -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
+        <div class="overflow-hidden aspect-[4/3]">
+          <Image
+            src={bothImg1}
+            alt="Business on the Heels event"
+            class="w-full h-full object-cover"
+            widths={[480, 800]}
+            sizes="(max-width: 1024px) 100vw, 50vw"
+          />
+        </div>
+        <div class="space-y-6">
+          <h3 class="text-ink font-bold text-xl">Membership is designed for women who:</h3>
+          <ul class="space-y-3">
+            {[
+              'Own a business or are building one',
+              'Are ready to grow strategically',
+              'Value structure, professionalism, and collaboration',
+              'Want to be part of a powerful Romanian women\'s network',
+            ].map((item) => (
+              <li class="flex items-start gap-3 text-ink/80 text-base leading-relaxed">
+                <span class="mt-1.5 w-2 h-2 rounded-full bg-magenta flex-shrink-0"></span>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <div class="pt-4 border-t border-muted/20">
+            <p class="text-ink font-bold text-lg">This is not a social club.</p>
+            <p class="text-ink/75 text-base mt-1">It is a business growth environment.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mission pull quote -->
+      <div class="bg-ink text-cream py-16 px-8 sm:px-16 text-center mb-20">
+        <p class="text-xs font-semibold tracking-widest uppercase text-gold mb-6">Our Mission</p>
+        <blockquote class="text-xl sm:text-2xl leading-relaxed max-w-3xl mx-auto">
+          To create a strong and united community of Romanian women who lead with <span class="text-magenta font-semibold">intelligence, confidence, and integrity</span> — building businesses that generate impact, independence, and legacy.
+        </blockquote>
+      </div>
+
+      <!-- What BotH provides + image -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-16">
+        <div class="space-y-6">
+          <h3 class="text-ink font-bold text-xl">Business on the Heels provides:</h3>
+          <ul class="space-y-3">
+            {[
+              'Strategic business guidance',
+              'Educational workshops and masterclasses',
+              'Networking opportunities',
+              'Mentorship and accountability',
+              'A powerful community of like-minded women',
+            ].map((item) => (
+              <li class="flex items-start gap-3 text-ink/80 text-base leading-relaxed">
+                <span class="mt-1.5 w-2 h-2 rounded-full bg-gold flex-shrink-0"></span>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <p class="text-ink/75 text-base leading-relaxed pt-2">
+            The club was built on the belief that women can lead with strength, elegance, and intelligence — while building profitable and sustainable businesses. Through connection, knowledge, and action, Business on the Heels helps women move from ambition to achievement.
+          </p>
+        </div>
+        <div class="overflow-hidden aspect-[4/3]">
+          <Image
+            src={bothImg2}
+            alt="Business on the Heels community"
+            class="w-full h-full object-cover"
+            widths={[480, 800]}
+            sizes="(max-width: 1024px) 100vw, 50vw"
+          />
+        </div>
+      </div>
+
+      <!-- Closing statement -->
+      <div class="text-center max-w-2xl mx-auto space-y-2">
+        <p class="text-ink font-bold text-xl">This is more than networking.</p>
+        <p class="text-ink/75 text-base">This is leadership development, collaboration, and economic empowerment.</p>
+        <p class="text-ink font-bold text-xl pt-4">This is not just about business.</p>
+        <p class="text-ink/75 text-base">It is about legacy, independence, and impact.</p>
+        <div class="pt-8">
+          <a href="/business-on-the-heels" class="inline-block bg-magenta text-cream px-8 py-3 text-sm font-semibold tracking-wide hover:bg-magenta/90 transition-colors">
+            Learn More About Business on the Heels
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 px-4 sm:px-6 bg-burgundy">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold text-cream mb-4">Ready to Grow?</h2>
+      <p class="text-cream/80 text-lg leading-relaxed mb-10">
+        A single conversation can change the trajectory of your business. Let us find out how we can work together.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/contact" class="inline-block bg-cream text-burgundy px-8 py-3 text-sm font-semibold tracking-wide hover:bg-cream/90 transition-colors">
+          Book a Discovery Call
+        </a>
+        <a href="/coaching" class="inline-block border border-cream text-cream px-8 py-3 text-sm font-semibold tracking-wide hover:bg-cream/10 transition-colors">
+          Learn More About Coaching
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

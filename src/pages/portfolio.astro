@@ -6,7 +6,6 @@ import logoAyaan from '../assets/d1b19127b171d019b375774ae86a8622.png';
 import logoSJ from '../assets/06d27964c6411abf85527429b09e6b23.png';
 import logoBotH from '../assets/65164f3f3d2a172439875e41d1dbf90b.png';
 import logoPrestige from '../assets/7be2c09af17ee5461fbbe4e0bd260bca.png';
-import prestigePhoto from '../assets/29c2d64c17abac5b8c4034c2f3d81063.jpg';
 import logoKalon from '../assets/3d43b0d62af39df458a4bad4618fa859.png';
 import logoTuFemeie from '../assets/918f9739357c73c8c675b1313ab6a6d9.png';
 import logoAR from '../assets/e5585549dd4a0ec638c61c2e75e4dd05.png';
@@ -16,53 +15,61 @@ const ventures = [
   {
     logo: logoAyaan,
     name: 'Ayaan & Co Services',
+    href: '/ventures',
     description: "Leading the company's overall financial strategy, business operations, and corporate growth — overseeing financial planning, investment decisions, risk management, and regulatory compliance.",
   },
   {
     logo: logoSJ,
     name: 'SJ Prestige Events',
+    href: '/ventures',
     description: 'Overseeing the overall management and operations of the event hall, ensuring every event is executed professionally and seamlessly — coordinating event planning, staff, and client relationships.',
   },
   {
     logo: logoBotH,
     name: 'Business on the Heels',
+    href: '/business-on-the-heels',
     description: 'Founded to empower ambitious women to grow, lead, and succeed in business — focusing on leadership development, entrepreneurship, financial confidence, and strong professional networks.',
   },
   {
     logo: logoPrestige,
     name: 'The Prestige Centre CIC',
+    href: '/ventures',
     description: 'Leading community-focused initiatives to bring people together, create opportunities, and support local growth — serving as a welcoming hub for connection, collaboration, and development.',
   },
   {
     logo: logoKalon,
     name: 'Kalon Financial',
+    href: '/ventures',
     description: 'As Protection Advisor & Area Sales Manager, helping individuals, families, and businesses secure their financial future through tailored protection solutions.',
   },
   {
     logo: logoTuFemeie,
     name: 'Tu Femeie Poți',
+    href: '/ventures',
     description: "Founded to support and inspire women within the Romanian community — focusing on personal development, financial education, confidence-building, and creating a strong women's support network.",
   },
   {
     logo: logoAR,
     name: 'A&R Consultancy',
+    href: '/ventures',
     description: "Supporting the daily operations of this family-owned accountancy firm — assisting with accounting and client management while maintaining high standards of accuracy and confidentiality.",
   },
   {
     logo: logoWonders,
     name: 'Wonders of Pakistan',
+    href: '/ventures',
     description: "Working alongside my husband to import high-quality bedsheets and home textiles from Pakistan — managing supplier relationships, product selection, import logistics, and customer service.",
   },
 ];
 ---
 
-<BaseLayout title="Ventures — Fatima Saleh" description="Explore the full portfolio of ventures led by Fatima Saleh — from consultancy and events to community organisations and financial services.">
+<BaseLayout title="Portfolio — Fatima Saleh" description="Explore the full portfolio of ventures led by Fatima Saleh — from consultancy and events to community organisations and financial services.">
 
   <!-- Header -->
   <section class="py-24 px-4 sm:px-6 bg-ink">
     <div class="max-w-6xl mx-auto">
       <p class="text-gold text-xs font-semibold tracking-widest uppercase mb-4">Portfolio</p>
-      <h1 class="text-5xl sm:text-7xl font-bold text-cream leading-tight mb-6">Our Ventures</h1>
+      <h1 class="text-5xl sm:text-7xl font-bold text-cream leading-tight mb-6">What I Am Doing</h1>
       <p class="text-cream/75 text-lg sm:text-xl max-w-2xl leading-relaxed">
         A portfolio of businesses, organisations, and initiatives — each built with purpose, each making a real difference in its field and community.
       </p>
@@ -74,57 +81,14 @@ const ventures = [
     <div class="max-w-6xl mx-auto">
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
         {ventures.map((v) => (
-          <div class="flex flex-col border border-muted/20 p-8 bg-white hover:shadow-md transition-shadow">
-            <div class="h-16 flex items-center mb-6">
-              <Image src={v.logo} alt={v.name} class="max-h-20 w-auto object-contain" style="width: 160px;" />
+          <a href={v.href} class="group flex flex-col items-center text-center border border-muted/20 p-10 bg-white hover:shadow-lg transition-shadow">
+            <div class="h-40 flex items-center justify-center mb-6">
+              <Image src={v.logo} alt={v.name} class="max-h-40 w-auto object-contain" style="max-width: 280px;" />
             </div>
-            <h2 class="text-ink font-bold text-xl mb-4">{v.name}</h2>
+            <h2 class="text-ink font-bold text-xl mb-3 group-hover:text-magenta transition-colors">{v.name}</h2>
             <p class="text-ink/65 text-base leading-relaxed">{v.description}</p>
-          </div>
+          </a>
         ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- The Prestige Centre CIC — expanded -->
-  <section class="py-20 px-4 sm:px-6 bg-ink">
-    <div class="max-w-6xl mx-auto">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <div class="space-y-6">
-          <div class="flex items-center gap-4 mb-2">
-            <Image src={logoPrestige} alt="The Prestige Centre CIC" class="max-h-14 w-auto object-contain" style="max-width: 160px;" />
-          </div>
-          <h2 class="text-3xl sm:text-4xl font-bold text-cream">The Prestige Centre CIC</h2>
-          <p class="text-cream/75 text-lg leading-relaxed">
-            At The Prestige Centre CIC, we deliver community-focused initiatives that bring people together, create opportunities, and support local growth.
-          </p>
-          <ul class="space-y-3">
-            {[
-              'Deliver community-focused workshops and development programmes',
-              'Host networking events and empowerment initiatives',
-              'Support local businesses and entrepreneurs',
-              'Promote wellbeing, education, and social inclusion',
-              'Create a safe and inspiring space for collaboration',
-            ].map((item) => (
-              <li class="flex items-start gap-3 text-cream/80 text-base leading-relaxed">
-                <span class="mt-1.5 w-2 h-2 rounded-full bg-gold flex-shrink-0"></span>
-                {item}
-              </li>
-            ))}
-          </ul>
-          <p class="text-cream/75 text-base leading-relaxed">
-            Our goal is to strengthen community bonds, encourage innovation, and create real impact through meaningful engagement. Every programme and event we organise is designed to uplift, support, and empower those we serve.
-          </p>
-        </div>
-        <div class="overflow-hidden aspect-[4/3]">
-          <Image
-            src={prestigePhoto}
-            alt="The Prestige Centre CIC community"
-            class="w-full h-full object-cover"
-            widths={[480, 800]}
-            sizes="(max-width: 1024px) 100vw, 50vw"
-          />
-        </div>
       </div>
     </div>
   </section>

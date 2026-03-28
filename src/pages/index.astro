@@ -134,15 +134,15 @@ const testimonials = [
   </section>
 
   <!-- Ventures Preview -->
-  <section class="py-20 px-4 sm:px-6 bg-ink">
+  <section id="portfolio" class="py-20 px-4 sm:px-6 bg-ink">
     <div class="max-w-6xl mx-auto">
       <p class="text-gold text-xs font-semibold tracking-widest uppercase mb-4">Ventures</p>
       <h2 class="text-3xl sm:text-4xl font-bold text-cream mb-12">What I'm Building</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {ventures.map((v) => (
-          <a href={v.href} class="group flex flex-col bg-cream/5 border border-cream/10 p-8 hover:bg-cream/10 transition-colors">
-            <div class="h-14 flex items-center mb-6">
-              <Image src={v.logo} alt={v.name} class="max-h-12 w-auto object-contain" />
+          <a href={v.href} class="group flex flex-col items-center text-center bg-cream/5 border border-cream/10 p-8 hover:bg-cream/10 transition-colors">
+            <div class="h-28 flex items-center justify-center mb-5">
+              <Image src={v.logo} alt={v.name} class="max-h-28 w-auto object-contain" style="max-width: 220px;" />
             </div>
             <h3 class="text-cream font-semibold text-lg mb-2 group-hover:text-gold transition-colors">{v.name}</h3>
             <p class="text-cream/60 text-sm leading-relaxed flex-1">{v.description}</p>
