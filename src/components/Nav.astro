@@ -90,12 +90,14 @@ const navLinks = [
   });
 
   // Theme toggle
-  function isDark() {
-    return document.documentElement.classList.contains('dark');
+  function isCurrentlyDark() {
+    if (document.documentElement.classList.contains('dark')) return true;
+    if (document.documentElement.classList.contains('light')) return false;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
   }
 
   function syncIcons() {
-    const dark = isDark();
+    const dark = isCurrentlyDark();
     (document.getElementById('icon-sun') as HTMLElement).classList.toggle('hidden', !dark);
     (document.getElementById('icon-moon') as HTMLElement).classList.toggle('hidden', dark);
     (document.getElementById('icon-sun-m') as HTMLElement).classList.toggle('hidden', !dark);
@@ -103,9 +105,10 @@ const navLinks = [
   }
 
   function toggleTheme() {
-    const dark = !isDark();
-    document.documentElement.classList.toggle('dark', dark);
-    localStorage.setItem('theme', dark ? 'dark' : 'light');
+    const goingDark = !isCurrentlyDark();
+    document.documentElement.classList.toggle('dark', goingDark);
+    document.documentElement.classList.toggle('light', !goingDark);
+    localStorage.setItem('theme', goingDark ? 'dark' : 'light');
     syncIcons();
   }
 

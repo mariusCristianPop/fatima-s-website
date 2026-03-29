@@ -58,40 +58,39 @@ const ogImageAbsolute = ogImage.startsWith('http') ? ogImage : `https://fatimasa
     <!-- Theme: apply before paint to avoid flash -->
     <script is:inline>
       (function() {
+        // Only apply dark class if user explicitly stored a preference
+        // System preference handled via CSS @media query to avoid Lighthouse interference
         const stored = localStorage.getItem('theme');
-        if (stored === 'dark') {
-          document.documentElement.classList.add('dark');
-        } else if (!stored) {
-          // First visit: respect system preference and store it so future loads are consistent
-          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-          localStorage.setItem('theme', prefersDark ? 'dark' : 'light');
-          if (prefersDark) document.documentElement.classList.add('dark');
-        }
+        if (stored === 'dark') document.documentElement.classList.add('dark');
+        else if (stored === 'light') document.documentElement.classList.add('light');
       })();
     </script>
 
     <style is:global>
-      /* Dark mode colour overrides — applied when .dark is on <html> */
-      .dark {
-        --tw-ink: #F7F4F0;
-        --tw-cream: #141210;
-        --tw-burgundy: #8B4D5E;
-        --tw-gold: #D4B86A;
-        --tw-magenta: #E0507A;
-        --tw-muted: #9A9590;
+      /* System preference — CSS media query (no JS class, Lighthouse handles correctly) */
+      @media (prefers-color-scheme: dark) {
+        html:not(.light) .text-ink { color: #F7F4F0; }
+        html:not(.light) .bg-cream { background-color: #141210; }
+        html:not(.light) .bg-ink { background-color: #141210; }
+        html:not(.light) .bg-burgundy { background-color: #8B4D5E; }
+        html:not(.light) .text-cream { color: #F7F4F0; }
+        html:not(.light) .text-gold { color: #D4B86A; }
+        html:not(.light) .text-magenta { color: #E0507A; }
+        html:not(.light) .text-muted { color: #9A9590; }
+        html:not(.light) .border-ink { border-color: #F7F4F0; }
+        html:not(.light) body { background-color: #141210; color: #F7F4F0; }
       }
-      .dark .text-ink { color: #F7F4F0; }
-      .dark .bg-cream { background-color: #141210; }
-      .dark .bg-ink { background-color: #141210; }
-      .dark .bg-burgundy { background-color: #8B4D5E; }
-      .dark .text-cream { color: #141210; }
-      .dark .text-gold { color: #D4B86A; }
-      .dark .text-magenta { color: #E0507A; }
-      .dark .text-muted { color: #9A9590; }
-      .dark .border-ink { border-color: #F7F4F0; }
-      .dark .border-cream { border-color: #141210; }
-      .dark .border-muted { border-color: #6B6460; }
-      .dark body { background-color: #141210; color: #F7F4F0; }
+      /* Explicit user toggle — .dark class overrides system preference */
+      html.dark .text-ink { color: #F7F4F0; }
+      html.dark .bg-cream { background-color: #141210; }
+      html.dark .bg-ink { background-color: #141210; }
+      html.dark .bg-burgundy { background-color: #8B4D5E; }
+      html.dark .text-cream { color: #F7F4F0; }
+      html.dark .text-gold { color: #D4B86A; }
+      html.dark .text-magenta { color: #E0507A; }
+      html.dark .text-muted { color: #9A9590; }
+      html.dark .border-ink { border-color: #F7F4F0; }
+      html.dark body { background-color: #141210; color: #F7F4F0; }
     </style>
   </head>
   <body class="bg-cream text-ink min-h-screen flex flex-col font-sans antialiased">
