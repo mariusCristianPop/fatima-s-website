@@ -36,20 +36,22 @@ const testimonials = [
   <section class="py-20 px-4 sm:px-6 bg-cream">
     <div class="max-w-6xl mx-auto">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {testimonials.map((t) => (
+        {testimonials.map((t, i) => (
           <div class="flex flex-col bg-white border border-muted/20 overflow-hidden">
-            <div class="p-6 flex justify-center">
-              <div class="w-24 h-24 rounded-full overflow-hidden flex-shrink-0">
-                <Image
-                  src={t.img}
-                  alt={t.name}
-                  class="w-full h-full object-cover object-top"
-                  widths={[96, 192]}
-                  sizes="96px"
-                />
-              </div>
-            </div>
-            <div class="px-6 pb-8 flex flex-col flex-1 text-center">
+            <button
+              class="block w-full overflow-hidden aspect-[4/3] cursor-zoom-in"
+              onclick={`openLightbox(${i})`}
+              aria-label={`View full image of ${t.name}`}
+            >
+              <Image
+                src={t.img}
+                alt={t.name}
+                class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-300"
+                widths={[400, 800]}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              />
+            </button>
+            <div class="px-6 py-8 flex flex-col flex-1 text-center">
               <p class="text-ink/75 text-base leading-relaxed flex-1 italic mb-6">"{t.quote}"</p>
               <p class="text-ink font-semibold text-sm">{t.name}</p>
             </div>
@@ -58,6 +60,29 @@ const testimonials = [
       </div>
     </div>
   </section>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="fixed inset-0 z-50 hidden items-center justify-center bg-ink/90" onclick="closeLightbox()">
+    <button class="absolute top-5 right-6 text-cream text-4xl leading-none hover:text-gold transition-colors" aria-label="Close">&times;</button>
+    <img id="lightbox-img" src="" alt="" class="max-w-[90vw] max-h-[90vh] object-contain shadow-2xl" onclick="event.stopPropagation()" />
+  </div>
+
+  <script define:vars={{ srcs: testimonials.map(t => t.img.src) }}>
+    function openLightbox(i) {
+      const lb = document.getElementById('lightbox');
+      document.getElementById('lightbox-img').src = srcs[i];
+      lb.classList.remove('hidden');
+      lb.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      const lb = document.getElementById('lightbox');
+      lb.classList.add('hidden');
+      lb.classList.remove('flex');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+  </script>
 
   <!-- CTA -->
   <section class="py-20 px-4 sm:px-6 bg-burgundy">
