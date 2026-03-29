@@ -75,10 +75,12 @@ const ogImageAbsolute = ogImage.startsWith('http') ? ogImage : `https://fatimasa
         html:not(.light) .bg-burgundy { background-color: #8B4D5E; }
         html:not(.light) .bg-white { background-color: #1f1d1b; }
         html:not(.light) .text-cream { color: #F7F4F0; }
+        html:not(.light) .text-burgundy { color: #D4809A; }
         html:not(.light) .text-gold { color: #D4B86A; }
         html:not(.light) .text-magenta { color: #F06090; }
         html:not(.light) .text-muted { color: #9A9590; }
         html:not(.light) .border-ink { border-color: #F7F4F0; }
+        html:not(.light) [class*="text-cream/"] { color: #F7F4F0; }
         html:not(.light) body { background-color: #141210; color: #F7F4F0; }
       }
       /* Explicit user toggle — .dark class overrides system preference */
@@ -88,10 +90,13 @@ const ogImageAbsolute = ogImage.startsWith('http') ? ogImage : `https://fatimasa
       html.dark .bg-burgundy { background-color: #8B4D5E; }
       html.dark .bg-white { background-color: #1f1d1b; }
       html.dark .text-cream { color: #F7F4F0; }
+      html.dark .text-burgundy { color: #D4809A; }
       html.dark .text-gold { color: #D4B86A; }
       html.dark .text-magenta { color: #F06090; }
       html.dark .text-muted { color: #9A9590; }
       html.dark .border-ink { border-color: #F7F4F0; }
+      /* Boost cream opacity variants on dark backgrounds */
+      html.dark [class*="text-cream/"] { color: #F7F4F0; }
       html.dark body { background-color: #141210; color: #F7F4F0; }
     </style>
   </head>
