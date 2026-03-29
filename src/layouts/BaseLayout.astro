@@ -54,6 +54,36 @@ const ogImageAbsolute = ogImage.startsWith('http') ? ogImage : `https://fatimasa
 
     <!-- Extra head content injected by individual pages -->
     <slot name="head" />
+
+    <!-- Theme: apply before paint to avoid flash -->
+    <script is:inline>
+      (function() {
+        const stored = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (stored === 'dark' || (!stored && prefersDark)) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+
+    <style is:global>
+      :root {
+        --color-ink: #0F0E0D;
+        --color-burgundy: #6B2D3E;
+        --color-gold: #C9A84C;
+        --color-magenta: #C4386B;
+        --color-cream: #F7F4F0;
+        --color-muted: #8A7F7A;
+      }
+      .dark {
+        --color-ink: #F7F4F0;
+        --color-cream: #141210;
+        --color-muted: #9A9590;
+        --color-burgundy: #8B4D5E;
+        --color-gold: #D4B86A;
+        --color-magenta: #D4507A;
+      }
+    </style>
   </head>
   <body class="bg-cream text-ink min-h-screen flex flex-col font-sans antialiased">
     <Nav />

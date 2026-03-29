@@ -15,31 +15,43 @@ const navLinks = [
       Fatima Saleh
     </a>
 
-    <!-- Desktop links -->
-    <ul class="hidden md:flex items-center gap-8">
-      {navLinks.map(({ href, label }) => (
-        <li>
-          <a
-            href={href}
-            class="text-ink/80 hover:text-burgundy text-sm font-medium tracking-wide transition-colors"
-          >
-            {label}
-          </a>
-        </li>
-      ))}
-    </ul>
+    <!-- Desktop links + theme toggle -->
+    <div class="hidden md:flex items-center gap-8">
+      <ul class="flex items-center gap-8">
+        {navLinks.map(({ href, label }) => (
+          <li>
+            <a
+              href={href}
+              class="text-ink/80 hover:text-burgundy text-sm font-medium tracking-wide transition-colors"
+            >
+              {label}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <button id="theme-toggle" aria-label="Toggle dark mode" class="w-8 h-8 flex items-center justify-center text-ink/70 hover:text-ink transition-colors">
+        <svg id="icon-sun" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg id="icon-moon" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/></svg>
+      </button>
+    </div>
 
-    <!-- Hamburger (mobile) -->
-    <button
-      id="nav-toggle"
-      aria-label="Toggle navigation"
-      aria-expanded="false"
-      class="md:hidden flex flex-col gap-1.5 p-2 text-ink"
-    >
-      <span class="block w-6 h-0.5 bg-current transition-transform duration-200 nav-bar-1"></span>
-      <span class="block w-6 h-0.5 bg-current transition-opacity duration-200 nav-bar-2"></span>
-      <span class="block w-6 h-0.5 bg-current transition-transform duration-200 nav-bar-3"></span>
-    </button>
+    <!-- Mobile: theme toggle + hamburger -->
+    <div class="md:hidden flex items-center gap-3">
+      <button id="theme-toggle-mobile" aria-label="Toggle dark mode" class="w-8 h-8 flex items-center justify-center text-ink/70 hover:text-ink transition-colors">
+        <svg id="icon-sun-m" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg id="icon-moon-m" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/></svg>
+      </button>
+      <button
+        id="nav-toggle"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+        class="flex flex-col gap-1.5 p-2 text-ink"
+      >
+        <span class="block w-6 h-0.5 bg-current transition-transform duration-200 nav-bar-1"></span>
+        <span class="block w-6 h-0.5 bg-current transition-opacity duration-200 nav-bar-2"></span>
+        <span class="block w-6 h-0.5 bg-current transition-transform duration-200 nav-bar-3"></span>
+      </button>
+    </div>
   </nav>
 
   <!-- Mobile menu -->
@@ -60,6 +72,7 @@ const navLinks = [
 </header>
 
 <script>
+  // Nav toggle
   const toggle = document.getElementById('nav-toggle');
   const menu = document.getElementById('mobile-menu');
   const bar1 = toggle?.querySelector('.nav-bar-1') as HTMLElement | null;
@@ -75,4 +88,28 @@ const navLinks = [
       bar3.style.transform = isOpen ? 'translateY(-8px) rotate(-45deg)' : '';
     }
   });
+
+  // Theme toggle
+  function isDark() {
+    return document.documentElement.classList.contains('dark');
+  }
+
+  function syncIcons() {
+    const dark = isDark();
+    (document.getElementById('icon-sun') as HTMLElement).classList.toggle('hidden', !dark);
+    (document.getElementById('icon-moon') as HTMLElement).classList.toggle('hidden', dark);
+    (document.getElementById('icon-sun-m') as HTMLElement).classList.toggle('hidden', !dark);
+    (document.getElementById('icon-moon-m') as HTMLElement).classList.toggle('hidden', dark);
+  }
+
+  function toggleTheme() {
+    const dark = !isDark();
+    document.documentElement.classList.toggle('dark', dark);
+    localStorage.setItem('theme', dark ? 'dark' : 'light');
+    syncIcons();
+  }
+
+  syncIcons();
+  document.getElementById('theme-toggle')?.addEventListener('click', toggleTheme);
+  document.getElementById('theme-toggle-mobile')?.addEventListener('click', toggleTheme);
 </script>
