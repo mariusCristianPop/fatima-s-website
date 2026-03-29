@@ -59,10 +59,13 @@ const ogImageAbsolute = ogImage.startsWith('http') ? ogImage : `https://fatimasa
     <script is:inline>
       (function() {
         const stored = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        // Only apply dark if user explicitly chose it OR system is dark AND media query resolves
-        if (stored === 'dark' || (!stored && prefersDark && window.matchMedia('(prefers-color-scheme: dark)').media !== 'not all')) {
+        if (stored === 'dark') {
           document.documentElement.classList.add('dark');
+        } else if (!stored) {
+          // First visit: respect system preference and store it so future loads are consistent
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          localStorage.setItem('theme', prefersDark ? 'dark' : 'light');
+          if (prefersDark) document.documentElement.classList.add('dark');
         }
       })();
     </script>
