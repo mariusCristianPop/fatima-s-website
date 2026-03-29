@@ -47,10 +47,12 @@ const services = [
       class="absolute inset-0 w-full h-full object-cover object-top"
       widths={[640, 1024, 1600]}
       sizes="100vw"
+      fetchpriority="high"
+      loading="eager"
     />
     <div class="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/40 to-transparent"></div>
     <div class="relative z-10 max-w-6xl mx-auto w-full px-4 sm:px-6 pb-16 sm:pb-24">
-      <p class="text-gold text-xs font-semibold tracking-widest uppercase mb-3">1:1 Coaching</p>
+      <p class="text-magenta text-xs font-semibold tracking-widest uppercase mb-3">1:1 Coaching</p>
       <h1 class="text-5xl sm:text-7xl font-bold text-cream leading-tight mb-6">
         Build With Clarity.<br />Lead With Confidence.
       </h1>
@@ -96,12 +98,12 @@ const services = [
   <!-- Services -->
   <section class="py-20 px-4 sm:px-6 bg-ink">
     <div class="max-w-6xl mx-auto">
-      <p class="text-gold text-xs font-semibold tracking-widest uppercase mb-4">What We Cover</p>
+      <p class="text-magenta text-xs font-semibold tracking-widest uppercase mb-4">What We Cover</p>
       <h2 class="text-3xl sm:text-4xl font-bold text-cream mb-12">Coaching Offers</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {services.map((s) => (
           <div class="bg-cream/5 border border-cream/10 p-8">
-            <h3 class="text-gold font-semibold text-base mb-4">{s.title}</h3>
+            <h3 class="text-magenta font-semibold text-base mb-4">{s.title}</h3>
             <p class="text-cream/70 text-sm leading-relaxed">{s.description}</p>
           </div>
         ))}
@@ -174,6 +176,8 @@ const services = [
       class="absolute inset-0 w-full h-full object-cover object-top"
       widths={[640, 1024, 1600]}
       sizes="100vw"
+      fetchpriority="high"
+      loading="eager"
     />
     <div class="absolute inset-0 bg-ink/70"></div>
     <div class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 text-center">
