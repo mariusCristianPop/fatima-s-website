@@ -60,7 +60,8 @@ const ogImageAbsolute = ogImage.startsWith('http') ? ogImage : `https://fatimasa
       (function() {
         const stored = localStorage.getItem('theme');
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        if (stored === 'dark' || (!stored && prefersDark)) {
+        // Only apply dark if user explicitly chose it OR system is dark AND media query resolves
+        if (stored === 'dark' || (!stored && prefersDark && window.matchMedia('(prefers-color-scheme: dark)').media !== 'not all')) {
           document.documentElement.classList.add('dark');
         }
       })();
@@ -84,22 +85,23 @@ const ogImageAbsolute = ogImage.startsWith('http') ? ogImage : `https://fatimasa
         --color-magenta: #E0507A;
       }
       /* Explicit resolved colours so Lighthouse contrast analyser can read them */
-      .text-ink  { color: #0F0E0D !important; }
-      .dark .text-ink  { color: #F7F4F0 !important; }
-      .text-cream { color: #F7F4F0 !important; }
-      .dark .text-cream { color: #141210 !important; }
-      .text-magenta { color: #A8224F !important; }
-      .dark .text-magenta { color: #E0507A !important; }
-      .text-gold { color: #C9A84C !important; }
-      .dark .text-gold { color: #D4B86A !important; }
-      .text-muted { color: #6B6460 !important; }
-      .dark .text-muted { color: #9A9590 !important; }
-      .bg-ink { background-color: #0F0E0D !important; }
-      .dark .bg-ink { background-color: #141210 !important; }
-      .bg-cream { background-color: #F7F4F0 !important; }
-      .dark .bg-cream { background-color: #141210 !important; }
-      .bg-burgundy { background-color: #6B2D3E !important; }
-      .dark .bg-burgundy { background-color: #8B4D5E !important; }
+      .text-ink  { color: #0F0E0D; }
+      .dark .text-ink  { color: #F7F4F0; }
+      .text-cream { color: #F7F4F0; }
+      .dark .text-cream { color: #F7F4F0; }
+      .text-magenta { color: #A8224F; }
+      .dark .text-magenta { color: #E0507A; }
+      .text-gold { color: #C9A84C; }
+      .dark .text-gold { color: #D4B86A; }
+      .text-muted { color: #6B6460; }
+      .dark .text-muted { color: #9A9590; }
+      .bg-ink { background-color: #0F0E0D; }
+      .dark .bg-ink { background-color: #0F0E0D; }
+      .bg-cream { background-color: #F7F4F0; }
+      .dark .bg-cream { background-color: #141210; }
+      .bg-burgundy { background-color: #6B2D3E; }
+      .dark .bg-burgundy { background-color: #8B4D5E; }
+      .bg-white { background-color: #ffffff; }
     </style>
   </head>
   <body class="bg-cream text-ink min-h-screen flex flex-col font-sans antialiased" style="color:#0F0E0D;background-color:#F7F4F0">
