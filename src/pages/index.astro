@@ -169,8 +169,8 @@ const testimonials = [
         {testimonials.map((t, i) => (
           <div class="flex flex-col bg-white border border-muted/20 overflow-hidden">
             <button
-              class="block w-full aspect-square overflow-hidden cursor-zoom-in"
-              onclick={`openLightbox(${i})`}
+              class="block w-full aspect-square overflow-hidden cursor-zoom-in testimonial-btn"
+              data-index={i}
               aria-label={`View full image of ${t.name}`}
             >
               <Image src={t.img} alt={t.name} class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-300" widths={[400, 600]} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
@@ -186,25 +186,30 @@ const testimonials = [
   </section>
 
   <!-- Lightbox -->
-  <div id="lightbox" class="fixed inset-0 z-50 hidden items-center justify-center bg-ink/90" onclick="closeLightbox()">
-    <button class="absolute top-5 right-6 text-cream text-4xl leading-none hover:text-gold transition-colors" aria-label="Close">&times;</button>
-    <img id="lightbox-img" src="" alt="" class="max-w-[90vw] max-h-[90vh] object-contain shadow-2xl" onclick="event.stopPropagation()" />
+  <div id="lightbox" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.92);align-items:center;justify-content:center;">
+    <button id="lightbox-close" style="position:absolute;top:1.25rem;right:1.5rem;color:#fff;font-size:2.5rem;line-height:1;background:none;border:none;cursor:pointer;" aria-label="Close">&times;</button>
+    <img id="lightbox-img" src="" alt="" style="max-width:90vw;max-height:90vh;object-fit:contain;" />
   </div>
 
   <script define:vars={{ srcs: testimonials.map(t => t.img.src) }}>
-    function openLightbox(i) {
-      const lb = document.getElementById('lightbox');
-      document.getElementById('lightbox-img').src = srcs[i];
-      lb.classList.remove('hidden');
-      lb.classList.add('flex');
-      document.body.style.overflow = 'hidden';
-    }
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightbox-img');
+
+    document.querySelectorAll('.testimonial-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        lbImg.src = srcs[parseInt(btn.dataset.index)];
+        lb.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
     function closeLightbox() {
-      const lb = document.getElementById('lightbox');
-      lb.classList.add('hidden');
-      lb.classList.remove('flex');
+      lb.style.display = 'none';
       document.body.style.overflow = '';
     }
+
+    document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+    lb.addEventListener('click', (e) => { if (e.target === lb) closeLightbox(); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
   </script>
 
