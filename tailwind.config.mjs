@@ -5,12 +5,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        ink: 'var(--color-ink)',
-        burgundy: 'var(--color-burgundy)',
-        gold: 'var(--color-gold)',
-        magenta: 'var(--color-magenta)',
-        cream: 'var(--color-cream)',
-        muted: 'var(--color-muted)',
+        ink: '#0F0E0D',
+        burgundy: '#6B2D3E',
+        gold: '#C9A84C',
+        magenta: '#A8224F',
+        cream: '#F7F4F0',
+        muted: '#6B6460',
       },
     },
   },

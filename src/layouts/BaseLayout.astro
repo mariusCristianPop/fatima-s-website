@@ -71,43 +71,30 @@ const ogImageAbsolute = ogImage.startsWith('http') ? ogImage : `https://fatimasa
     </script>
 
     <style is:global>
-      :root {
-        --color-ink: #0F0E0D;
-        --color-burgundy: #6B2D3E;
-        --color-gold: #C9A84C;
-        --color-magenta: #A8224F;
-        --color-cream: #F7F4F0;
-        --color-muted: #6B6460;
-      }
+      /* Dark mode colour overrides — applied when .dark is on <html> */
       .dark {
-        --color-ink: #F7F4F0;
-        --color-cream: #141210;
-        --color-muted: #9A9590;
-        --color-burgundy: #8B4D5E;
-        --color-gold: #D4B86A;
-        --color-magenta: #E0507A;
+        --tw-ink: #F7F4F0;
+        --tw-cream: #141210;
+        --tw-burgundy: #8B4D5E;
+        --tw-gold: #D4B86A;
+        --tw-magenta: #E0507A;
+        --tw-muted: #9A9590;
       }
-      /* Explicit resolved colours so Lighthouse contrast analyser can read them */
-      .text-ink  { color: #0F0E0D; }
-      .dark .text-ink  { color: #F7F4F0; }
-      .text-cream { color: #F7F4F0; }
-      .dark .text-cream { color: #F7F4F0; }
-      .text-magenta { color: #A8224F; }
-      .dark .text-magenta { color: #E0507A; }
-      .text-gold { color: #C9A84C; }
-      .dark .text-gold { color: #D4B86A; }
-      .text-muted { color: #6B6460; }
-      .dark .text-muted { color: #9A9590; }
-      .bg-ink { background-color: #0F0E0D; }
-      .dark .bg-ink { background-color: #0F0E0D; }
-      .bg-cream { background-color: #F7F4F0; }
+      .dark .text-ink { color: #F7F4F0; }
       .dark .bg-cream { background-color: #141210; }
-      .bg-burgundy { background-color: #6B2D3E; }
+      .dark .bg-ink { background-color: #141210; }
       .dark .bg-burgundy { background-color: #8B4D5E; }
-      .bg-white { background-color: #ffffff; }
+      .dark .text-cream { color: #141210; }
+      .dark .text-gold { color: #D4B86A; }
+      .dark .text-magenta { color: #E0507A; }
+      .dark .text-muted { color: #9A9590; }
+      .dark .border-ink { border-color: #F7F4F0; }
+      .dark .border-cream { border-color: #141210; }
+      .dark .border-muted { border-color: #6B6460; }
+      .dark body { background-color: #141210; color: #F7F4F0; }
     </style>
   </head>
-  <body class="bg-cream text-ink min-h-screen flex flex-col font-sans antialiased" style="color:#0F0E0D;background-color:#F7F4F0">
+  <body class="bg-cream text-ink min-h-screen flex flex-col font-sans antialiased">
     <Nav />
     <main class="flex-1">
       <slot />
