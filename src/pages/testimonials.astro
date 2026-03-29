@@ -64,16 +64,24 @@ const testimonials = [
   <!-- Lightbox -->
   <div id="lightbox" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.92);align-items:center;justify-content:center;">
     <button id="lightbox-close" style="position:absolute;top:1.25rem;right:1.5rem;color:#fff;font-size:2.5rem;line-height:1;background:none;border:none;cursor:pointer;" aria-label="Close">&times;</button>
-    <img id="lightbox-img" src="" alt="" style="max-width:90vw;max-height:90vh;object-fit:contain;" />
+    <button id="lightbox-prev" style="position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:#fff;font-size:2.5rem;line-height:1;background:none;border:none;cursor:pointer;padding:0.5rem;" aria-label="Previous">&#8249;</button>
+    <img id="lightbox-img" src="" alt="" style="max-width:80vw;max-height:90vh;object-fit:contain;" />
+    <button id="lightbox-next" style="position:absolute;right:1rem;top:50%;transform:translateY(-50%);color:#fff;font-size:2.5rem;line-height:1;background:none;border:none;cursor:pointer;padding:0.5rem;" aria-label="Next">&#8250;</button>
   </div>
 
   <script define:vars={{ srcs: testimonials.map(t => t.img.src) }}>
     const lb = document.getElementById('lightbox');
     const lbImg = document.getElementById('lightbox-img');
+    let current = 0;
+
+    function showImage(i) {
+      current = (i + srcs.length) % srcs.length;
+      lbImg.src = srcs[current];
+    }
 
     document.querySelectorAll('.testimonial-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        lbImg.src = srcs[parseInt(btn.dataset.index)];
+        showImage(parseInt(btn.dataset.index));
         lb.style.display = 'flex';
         document.body.style.overflow = 'hidden';
       });
@@ -85,8 +93,14 @@ const testimonials = [
     }
 
     document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+    document.getElementById('lightbox-prev').addEventListener('click', (e) => { e.stopPropagation(); showImage(current - 1); });
+    document.getElementById('lightbox-next').addEventListener('click', (e) => { e.stopPropagation(); showImage(current + 1); });
     lb.addEventListener('click', (e) => { if (e.target === lb) closeLightbox(); });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') showImage(current - 1);
+      if (e.key === 'ArrowRight') showImage(current + 1);
+    });
   </script>
 
   <!-- CTA -->
